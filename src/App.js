@@ -1,6 +1,6 @@
 import "./App.css";
 import Alert from "./components/Alert";
-// import About from "./components/About";
+import About from "./components/About";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
@@ -40,19 +40,17 @@ function App() {
 
   return (
     <>
-      {/* <BrowserRouter> */}
+      <BrowserRouter>
         <Navbar title="TextUtils" aboutText="About" mode={mode} btntext={btntext} toggleMode={toggleMode} />
         <Alert alert={alert} />
-        {/* <Routes> */}
-          {/* <Route exact path="/About" element={<About/>} /> */}
-          {/* <Route exact path="/" element={<div className="container"> */}
-          <div className="container">
-            <TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode={mode} />
-          </div>
-          {/* </div>} /> */}
-         {/* </Routes> */}
+        <Routes>
+          <Route exact path="/About" element={<About mode={mode}/>} oncli />
+          <Route exact path="/" element={<div className="container">
+            <TextForm showAlert={showAlert} heading="Try TextUtils - Word Counter, Character Counter, Remove extra spaces  " mode={mode} />
+          </div>} />
+         </Routes>
         <Footer />
-      {/* // </BrowserRouter>   */}
+      </BrowserRouter>  
     </>
   );
 }
