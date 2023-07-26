@@ -17,10 +17,10 @@ export default function TextForm(props) {
     }
 
     const handleCopy = () =>{
-        let text = document.getElementById("myBox");
-        text.select();
-        navigator.clipboard.writeText(text.value);
-        document.getSelection().removeAllRanges();
+        // let text = document.getElementById("myBox");
+        // text.select();
+        navigator.clipboard.writeText(text);    
+        // document.getSelection().removeAllRanges();
         props.showAlert(" Copied to clipbord", "success")
 
     }
@@ -47,7 +47,7 @@ export default function TextForm(props) {
     // setText("new text"); // Correct way to change the state
     return (
         <>
-            <div className="container my-2" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
+            <div className="container my-3" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <h2 className="mb-4">{props.heading}</h2>
                 <div className="mb-3">
                     <textarea className="form-control" placeholder="Type your text here" value={text} 
@@ -64,7 +64,7 @@ export default function TextForm(props) {
             </div>
             <div className="container my-3" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
                 <h1>Your text sumamary</h1>
-                <p>Charcater Count: {text.length} | Word Count: {text.split(" ").filter((element)=>{return element.length !== 0}).length}</p>
+                <p>Charcater Count: {text.length} | Word Count: {text.split(/\s+/).filter((element)=>{return element.length !== 0}).length}</p>
                 <p>Reading Time: {0.008 * text.split(" ").filter((element)=>{return element.length !== 0}).length} Minutes </p>
                 <h2>Preview</h2>
                 <p>{text.length>0?text:"Nothing to Preview!"}</p>

@@ -44,7 +44,7 @@ function App() {
         <Navbar title="TextUtils" aboutText="About" mode={mode} btntext={btntext} toggleMode={toggleMode} />
         <Alert alert={alert} />
         <Routes>
-          <Route exact path="/About" element={<About mode={mode}/>} oncli />
+          <Route exact path="/About" element={<About mode={mode}/>}/>
           <Route exact path="/" element={<div className="container">
             <TextForm showAlert={showAlert} heading="Try TextUtils - Word Counter, Character Counter, Remove extra spaces  " mode={mode} />
           </div>} />
